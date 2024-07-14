@@ -17,8 +17,14 @@ This project will guide you to fetch 2019 trip data from a "https://www.nyc.gov/
 4.  Download serviceaccount json key and put it into the working directory. You need to replace the path in bigquery_handling.py to your's json key path.
    ![image](https://github.com/user-attachments/assets/398bd502-e8b6-47c8-ad61-1a14416c0d66)
 
+5. you can use my JSON file for the demo. I will disable it after 5 days you get my email.
+ https://docs.google.com/document/d/1yaQFvPTs4enmo-b_m1sETR9Sdf9zM3_1FG9QmK0dcls/edit?usp=sharing
 
-6.  Run the code in terminal : python app.py
+6. Create a directory with the name CSV_Data
+7.  Run the code in terminal : python app.py
+8. BigQuery table structure
+
+   ![image](https://github.com/user-attachments/assets/912fa8a3-af6b-43bb-abb4-ab0df4d012f0)
 
 # Recomandation
 This code is handling GB's of data. I recomand you to use it on Cloud. Use GCP compute engine with high CPU/GPU (~32 GB) configuration for better performance. I am using pandas to preprocess data it has it's onw limitation to handle number of rows. if you are using it in your local system it might take more then 2-3 hours to completely run the code (from generating data to uploading it to BigQuery). 
@@ -31,6 +37,14 @@ a. Run first 3 line of code and comment rest.
 b. Run second half, comment above code now
 
 ![image](https://github.com/user-attachments/assets/1f8743eb-de25-4d8f-bed6-561bcb2de094)
+
+# Analysis
+1. created BigQuery client to fetch data directly from the warehouse
+
+# Next Step
+1. Use the power of LLM to convert natural language to BigQuery queries.
+2. Create a Gradio interface to provide UI
+3. Ask your queries in English
 
 
 
