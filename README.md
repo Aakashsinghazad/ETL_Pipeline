@@ -40,6 +40,23 @@ b. Run second half, comment above code now
 
 # Analysis
 1. created BigQuery client to fetch data directly from the warehouse
+2. Created a queries.py python file to handle BigQuery queries
+
+# Updated code structure
+![image](https://github.com/user-attachments/assets/513da5f6-9fb0-41ef-86a4-5466d53aa559)
+
+# Running queries
+comment the above code in app.py to run queries
+
+![image](https://github.com/user-attachments/assets/e1448b29-1c7d-4192-8863-1795f3edb97c)
+
+
+solution : 
+![image](https://github.com/user-attachments/assets/108bccf2-69f9-437c-8d9c-4969ae790feb)
+
+
+
+
 
 # Next Step
 1. Use the power of LLM to convert natural language to BigQuery queries.
