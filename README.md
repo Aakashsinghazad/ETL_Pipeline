@@ -22,6 +22,9 @@ This project will guide you to fetch 2019 trip data from a "https://www.nyc.gov/
 
 6. Create a directory with the name CSV_Data
 7.  Run the code in terminal : python app.py
+8. BigQuery table structure
+
+   ![image](https://github.com/user-attachments/assets/912fa8a3-af6b-43bb-abb4-ab0df4d012f0)
 
 # Recomandation
 This code is handling GB's of data. I recomand you to use it on Cloud. Use GCP compute engine with high CPU/GPU (~32 GB) configuration for better performance. I am using pandas to preprocess data it has it's onw limitation to handle number of rows. if you are using it in your local system it might take more then 2-3 hours to completely run the code (from generating data to uploading it to BigQuery). 
