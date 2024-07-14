@@ -63,6 +63,10 @@ solution :
 2. Create a Gradio interface to provide UI
 3. Ask your queries in English
 
+Use your GPT 4  key in genAI.py code
+
+![image](https://github.com/user-attachments/assets/47985cbb-3d5f-47f1-8f4e-9904f58ffe92)
+
 
 
 
