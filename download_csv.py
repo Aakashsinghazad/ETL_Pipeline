@@ -4,11 +4,12 @@ import pyarrow.parquet as pq
 import pyarrow.csv as pc
 
 '''
-    The below code will download parquet file into CSV_Data. Before that it will create  
+    The below code will download parquet file into CSV_Data. Before that it will create parquet file one parquet is converted into csv it will delete parquet file
 '''
 
 file_name=["Yellow_Taxi_Trip_Records","Green_Taxi_Trip_Records","Hire_Vehicle_Trip_Records","High_Volume_Hire_Vehicle_Trip_Records"]
 
+# Below function will download csv file from the parquet link
 def download_csv_from_link(parquet_links):
    DataFolder="CSV_Data"
    for month, urls in parquet_links.items():

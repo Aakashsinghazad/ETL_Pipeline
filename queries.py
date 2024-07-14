@@ -1,6 +1,11 @@
 import pandas as pd
 from google.cloud import bigquery
 
+'''
+This module is responsible for ececuting query It has a function that ececute query and send result (dataframe) and message a response
+
+'''
+
 def execute_sql_query(query):
     client = bigquery.Client()
 

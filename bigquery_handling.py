@@ -2,6 +2,10 @@ import os
 import pandas as pd
 from google.cloud import bigquery
 
+'''
+Setting up the environment. This module is responsible for cleaning dataset and load it to bigquery. Data is fetch in series by month starting from January 
+till December. 
+'''
 
 pd.set_option('future.no_silent_downcasting', True)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "aakash-project-422813-c13d23836375.json"
@@ -9,6 +13,7 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 file_name=["Yellow_Taxi_Trip_Records","Green_Taxi_Trip_Records","Hire_Vehicle_Trip_Records","High_Volume_Hire_Vehicle_Trip_Records"]
 
 
+# Below function processs the dataset of yellow taxi 
 def process_yellow_taxi_dataset():
     data_folder="CSV_Data"
     file_name = "Yellow_Taxi_Trip_Records.csv"
@@ -54,6 +59,8 @@ def process_yellow_taxi_dataset():
                     df['average_speed']=df['average_speed'].replace(0, pd.NA)
                     df['average_speed']=df['average_speed'].fillna(df['average_speed'].mean())
                     df['passenger_count']=df['passenger_count'].fillna(int(df['passenger_count'].mean()))
+
+                    #Loading dataframe into bigquery for further analysis
                     load_taxi_data_to_BigQuery(df,schema,table_id)
                     print(f"{month} table is updated to BigQuery..")
                 else:
@@ -63,7 +70,7 @@ def process_yellow_taxi_dataset():
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
-
+# Below function processs the dataset of green taxi 
 def process_green_taxi_dataset():
     data_folder="CSV_Data"
     file_name = "Green_Taxi_Trip_Records.csv"
@@ -112,6 +119,7 @@ def process_green_taxi_dataset():
                     df['passenger_count']=df['passenger_count'].fillna(int(df['passenger_count'].mean()))
                     df["ehail_fee"]=df["ehail_fee"].fillna(0)
                     
+                    #Loading dataframe into bigquery for further analysis
                     load_taxi_data_to_BigQuery(df,schema,table_id)
                     print(f"{month} table is updated to BigQuery..")
                 else:
@@ -124,7 +132,7 @@ def process_green_taxi_dataset():
 
 
 
-
+# Below function processs the dataset of hired taxi
 def process_hired_taxi_dataset():
     data_folder="CSV_Data"
     file_name = "Hire_Vehicle_Trip_Records.csv"
@@ -153,6 +161,8 @@ def process_hired_taxi_dataset():
                     df['PUlocationID'] = df['PUlocationID'].fillna(0)
                     df['DOlocationID'] = df['DOlocationID'].fillna(0)
                     df['SR_Flag'] = df['SR_Flag'].fillna(0)
+
+                    #Loading dataframe into bigquery for further analysis
                     load_taxi_data_to_BigQuery(df,schema,table_id)
                     print(f"{month} table is updated to BigQuery..")
                 else:
@@ -163,6 +173,7 @@ def process_hired_taxi_dataset():
         print(f"An error occurred: {str(e)}")
     
 
+# Below function processs the dataset of high volume hired taxi
 def process_high_vol_hired_taxi_dataset():
     data_folder="CSV_Data"
     file_name = "High_Volume_Hire_Vehicle_Trip_Records.csv"
@@ -213,6 +224,7 @@ def process_high_vol_hired_taxi_dataset():
                     df['airport_fee'] = df['airport_fee'].fillna(0)
                     df['congestion_surcharge'] = df['congestion_surcharge'].fillna(0)
                     
+                    #Loading dataframe into bigquery for further analysis
                     load_taxi_data_to_BigQuery(df,schema,table_id)
                     print(f"{month} table is updated to BigQuery..")
                 else:
@@ -223,6 +235,7 @@ def process_high_vol_hired_taxi_dataset():
         print(f"An error occurred: {str(e)}")
 
 
+# Below function load data into bigquery for further analysis
 def load_taxi_data_to_BigQuery(df,schema,table_id):
 
     client = bigquery.Client()

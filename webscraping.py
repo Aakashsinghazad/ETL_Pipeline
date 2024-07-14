@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import time
 
+'''
+This module is responsible for extracting links form the given link. 
+'''
+
 URL = "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page"
 
 

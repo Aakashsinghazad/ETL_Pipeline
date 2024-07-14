@@ -5,3 +5,4 @@ numpy
 pyarrow
 google-cloud-bigquery
 db-dtypes
+pip install openai==0.28
