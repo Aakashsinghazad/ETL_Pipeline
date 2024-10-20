@@ -1,5 +1,3 @@
-# d2k-Technologies-assignment
-
 # Overview:
 This project will guide you to fetch 2019 trip data from a "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page" website. I have written a bunch of code for web scraping where I have extracted and downloaded the .parquet file. This parquet file is again converted to .csv using "pyarrow" module of Python. Once I have the CSV file, I have created a pandas data frame out of it where I have done cleaning and preprocessing. Once preprocessing is done I have uploaded data to BigQuery for further analysis. 
 
